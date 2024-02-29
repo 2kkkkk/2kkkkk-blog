@@ -1,0 +1,87 @@
+# Hugo configuration file
+baseURL: https://2kkkkk.github.io/
+title: 2kkkkk's Site
+paginate: 5
+# import hextra as module
+module:
+  imports:
+    - path: hextra
+  # - path: github.com/imfing/hextra
+
+outputs:
+  home: [HTML]
+  page: [HTML]
+  section: [HTML, RSS]
+
+markup:
+  # allow raw html
+  goldmark:
+    renderer:
+      unsafe: true
+
+  # enable hextra syntax highlight
+  highlight:
+    noClasses: false
+
+taxonomies:
+  category: categories
+  tag: tags
+
+menu:
+  main:
+    - identifier: home
+      name: Home
+      pageRef: /
+      weight: 1
+    - identifier: documentation
+      name: Documentation
+      pageRef: /docs
+      weight: 10
+    - identifier: blog
+      name: Blog
+      pageRef: /blog
+      weight: 20
+    - identifier: about
+      name: About
+      pageRef: /about
+      weight: 30
+    - name: Search
+      weight: 40
+      params:
+        type: search
+    - name: GitHub
+      weight: 50
+      url: "https://github.com/imfing/hextra"
+      params:
+        icon: github
+
+
+params:
+  navbar:
+    displayTitle: true
+    displayLogo: false
+
+  footer:
+    displayCopyright: false
+    displayPoweredBy: true
+
+  displayUpdatedDate: true
+  dateFormat: "January 2, 2006"
+  
+  # Search
+  # flexsearch is enabled by default
+  search:
+    enable: true
+    type: flexsearch
+
+    flexsearch:
+      # index page by: content | summary | heading | title
+      index: content
+
+  blog:
+    list:
+      displayTags: false
+
+  editURL:
+    enable: false
+    base: "https://github.com/imfing/hextra-starter-template/edit/main/content"
